@@ -4,7 +4,7 @@ import aiosqlite  # Changed: sqlite3 → aiosqlite
 # Use temporary directory which should be writable
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(
-    os.path.join(BASE_DIR, "..", "..", "..")
+    os.path.join(BASE_DIR, "..", "..")
 )
 
 DB_PATH = os.path.join(PROJECT_ROOT, "expenses.db")
