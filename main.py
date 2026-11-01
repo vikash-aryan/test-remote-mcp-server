@@ -2,13 +2,22 @@ from fastmcp import FastMCP
 import os
 import aiosqlite  # Changed: sqlite3 → aiosqlite
 # Use temporary directory which should be writable
+# Use writable temporary storage in deployment
+import tempfile
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.abspath(
-    os.path.join(BASE_DIR, "..", "..")
+
+DB_PATH = os.path.join(
+    tempfile.gettempdir(),
+    "expenses.db"
 )
 
-DB_PATH = os.path.join(PROJECT_ROOT, "expenses.db")
-CATEGORIES_PATH = os.path.join(PROJECT_ROOT, "categories.json")
+CATEGORIES_PATH = os.path.join(
+    BASE_DIR,
+    "categories.json"
+)
+
+print(f"Database path: {DB_PATH}")
+print(f"Categories path: {CATEGORIES_PATH}")
 
 print(f"Database path: {DB_PATH}")
 
